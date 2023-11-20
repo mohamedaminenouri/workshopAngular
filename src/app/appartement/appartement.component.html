@@ -1,0 +1,34 @@
+<div class="container">
+  <button
+    [routerLink]="['/ajouterDeprt']"
+    type="button"
+    class="btn btn-outline-success btn-sm m-2"
+  >
+    Ajouter Appartement
+  </button>
+  <div class="card-group">
+    <div class="card bg-light m-3" *ngFor="let appart of list">
+      <img
+        class="card-img-top"
+        [src]="appart.residence.image"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <div class="row">
+          <div class="col m-2">{{ appart.category }}</div>
+          <div class="col m-2">{{ appart.description }}</div>
+          <div class="w-100"></div>
+          <div class="col m-2">{{ appart.residence.name }}</div>
+          <div class="col m-2">{{ appart.surface }}</div>
+        </div>
+        <button
+          type="button"
+          [routerLink]="['/detailsAprt', appart.appartNum]"
+          class="btn btn-warning btn-sm m-2"
+        >
+          details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

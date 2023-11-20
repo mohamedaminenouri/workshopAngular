@@ -1,0 +1,29 @@
+<div class="container">
+<h3>{{name}}</h3>
+<input type="number" placeholder="taper prix " [(ngModel)]="prix">
+<div class="table-primary">
+<table border="2">
+  <tr>
+    <th>id</th>
+    <th>libelle</th>
+    <th>price</th>
+    <th>qte</th>
+    <th>like</th>
+    <th>dislake</th>
+  </tr>
+  <tr *ngFor="let produit of listproduct ; let p = index ">
+    <ng-container *ngIf=" produit.price>prix">
+    <td>{{ produit.id }}</td>
+    <td>{{ produit.libelle }}</td>
+    <td>{{ produit.price }}</td>
+    <td>{{ produit.qte }}</td>
+    <td><button class="like" (click)="ajoutLike(p)" >like</button></td>
+    <td><button class="dislike" (click)="dislake(p)" [disabled]="produit.qte==0">dislake</button></td>
+  </ng-container>
+  </tr>
+</table>
+</div>
+</div>
+<div class="table">
+  <div></div>
+</div>

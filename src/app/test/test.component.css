@@ -1,0 +1,10 @@
+div {
+
+  background-color: aliceblue;
+}
+.like {
+  background-color: rgb(77, 255, 0);
+}
+.dislike {
+  background-color: rgb(255, 0, 81);
+}

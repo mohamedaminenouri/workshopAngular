@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="container mt-4" *ngIf="apartment">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          Détails de l'appartement {{ apartment.appartNum }}
+        </h5>
+        <p class="card-text">
+          <strong>Étage:</strong> {{ apartment.floorNum }}
+        </p>
+        <p class="card-text">
+          <strong>Surface:</strong> {{ apartment.surface }}
+        </p>
+
+        <p class="card-text">
+          <strong>Terrasse:</strong> {{ apartment.terrace }}
+        </p>
+        <p class="card-text" *ngIf="apartment.terrace === 'oui'">
+          <strong>Surface de la terrasse:</strong>
+          {{ apartment.surfaceTerrace }}
+        </p>
+
+        <p class="card-text">
+          <strong>Catégorie:</strong> {{ apartment.category }}
+        </p>
+
+        <p class="card-text">
+          <strong>Description:</strong> {{ apartment.description }}
+        </p>
+
+        <!-- Vous pouvez ajouter d'autres champs selon vos besoins -->
+
+        <a [routerLink]="['/residence']" class="btn btn-primary">Retour</a>
+      </div>
+    </div>
+  </div>
+</div>

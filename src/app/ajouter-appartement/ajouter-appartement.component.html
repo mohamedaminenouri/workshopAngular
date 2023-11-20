@@ -1,0 +1,91 @@
+<div class="container">
+  <!-- votre-component.component.html -->
+
+  <div class="container mt-4">
+    <h2>Ajouter un nouvel appartement</h2>
+    <form>
+      <!-- Numéro de l'appartement -->
+      <div class="form-group">
+        <label for="appartNum">Numéro de l'appartement</label>
+        <input
+          type="text"
+          class="form-control"
+          id="appartNum"
+          name="appartNum"
+          required
+        />
+      </div>
+
+      <!-- Étage -->
+      <div class="form-group">
+        <label for="floorNum">Étage</label>
+        <input
+          type="text"
+          class="form-control"
+          id="floorNum"
+          name="floorNum"
+          required
+        />
+      </div>
+
+      <!-- Surface -->
+      <div class="form-group">
+        <label for="surface">Surface</label>
+        <input
+          type="text"
+          class="form-control"
+          id="surface"
+          name="surface"
+          required
+        />
+      </div>
+
+      <!-- Terrasse -->
+      <div class="form-group">
+        <label for="terrace">Terrasse</label>
+        <select class="form-control" id="terrace" name="terrace" required>
+          <option value="oui">Oui</option>
+          <option value="non">Non</option>
+        </select>
+      </div>
+
+      <!-- Surface de la terrasse -->
+      <div class="form-group">
+        <label for="surfaceTerrace">Surface de la terrasse</label>
+        <input
+          type="text"
+          class="form-control"
+          id="surfaceTerrace"
+          name="surfaceTerrace"
+          required
+        />
+      </div>
+
+      <!-- Catégorie -->
+      <div class="form-group">
+        <label for="category">Catégorie</label>
+        <input
+          type="text"
+          class="form-control"
+          id="category"
+          name="category"
+          required
+        />
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          name="description"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Bouton Soumettre -->
+      <button type="submit" class="btn btn-primary m-2">Ajouter Appartement</button>
+    </form>
+  </div>
+</div>
