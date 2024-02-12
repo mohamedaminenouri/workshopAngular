@@ -1,14 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Apartment } from '../core/models/Appartement';
-import { Residence } from '../core/models/Residence';
+import { Injectable } from '@angular/core';
+import { Produit } from './core/models/Produit';
+import { Apartment } from './core/models/Appartement';
+import { Residence } from './core/models/Residence';
+import { Product } from './model/product';
 
-@Component({
-  selector: 'app-details-appartement',
-  templateUrl: './details-appartement.component.html',
-  styleUrls: ['./details-appartement.component.css'],
+@Injectable({
+  providedIn: 'root',
 })
-export class DetailsAppartementComponent implements OnInit {
+export class ServiceService {
+  constructor() {}
+  listProduit: Produit[] = [
+    { id: 1, libelle: 'iphone x', marque: 'apple', prix: 1000, like: 3 },
+    {
+      id: 2,
+      libelle: 'iphone 11 pro ',
+      marque: 'apple',
+      prix: 1200,
+      like: 13,
+    },
+    {
+      id: 3,
+      libelle: 'iphone 12 pro max',
+      marque: 'apple',
+      prix: 2000,
+      like: 8,
+    },
+    { id: 4, libelle: 'iphone 13 ', marque: 'apple', prix: 2800, like: 5 },
+  ];
+
   listResidences: Residence[] = [
     {
       id: 1,
@@ -71,13 +90,18 @@ export class DetailsAppartementComponent implements OnInit {
       residence: this.listResidences[1],
     },
   ];
-  constructor(private route: ActivatedRoute) {}
-  apartment?: Apartment;
-  ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    
 
-    this.apartment = this.listApartments.find((apprt) => apprt.appartNum == id);
-
+  addAppartement(appartment: Apartment) {
+    this.listApartments.push(appartment);
   }
+  products: Product[] = [
+    { id: 1, libelle: 'samsung', price: 1200, qte: 14 },
+    { id: 2, libelle: 'huawei', price: 1500, qte: 4 },
+    { id: 3, libelle: 'xiami', price: 800, qte: 50 },
+    { id: 4, libelle: 'oppo', price: 900, qte: 4 },
+  ];
+
+  addProduct(product: Product) {
+    this.products.push(product);
+}
 }

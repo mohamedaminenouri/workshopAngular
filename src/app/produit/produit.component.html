@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card-group">
+    <ng-container
+     *ngFor="let produit of listProduit">
+      <app-show-one-produit #c [p]="produit" (notif)="afterReceiveData(produit.id)"></app-show-one-produit>
+<!-- <button (click)="c.showMsgChild()"></button> -->
+<button (click)="afficheProduit(produit.id)">affiche</button>
+<button [routerLink]="['/update',produit.id]">update</button>
+
+    </ng-container>
+
+
+  </div>
+</div>
+  <div>
+
+  </div>
+  <div class="container mt-4" *ngIf="prd">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          Id produit {{ prd.id }}
+        </h5>
+        <p class="card-text">
+          <strong>prix :</strong> {{ prd.price }}
+        </p>
+        <p class="card-text">
+          <strong>Surface:</strong> {{ prd.qte }}
+        </p>
+ <p class="card-text">
+          <strong>Surface:</strong> {{ prd.qte }}
+        </p>
+
+
+        <!-- Vous pouvez ajouter d'autres champs selon vos besoins -->
+
+        <a [routerLink]="['/residence']" class="btn btn-primary">Retour</a>
+      </div>
+    </div>
+  </div>

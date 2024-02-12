@@ -10,4 +10,5 @@ export class Apartment {
   category!: string;
   description!: string;
   residence!: Residence;
+
 }

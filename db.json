@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "libelle": "x",
+      "prix": null,
+      "qte": 5
+    },
+    {
+      "id": 2,
+      "libelle": "samsung s22",
+      "price": "2990 dt",
+      "qte": 4
+    },
+    {
+      "id": 3,
+      "libelle": "redmi note 10 pro",
+      "price": "1100 dt",
+      "qte": 8
+    },
+    {
+      "id": 4,
+      "libelle": "",
+      "price": "",
+      "qte": ""
+    },
+    {
+      "id": 5,
+      "libelle": "",
+      "price": "",
+      "qte": ""
+    },
+    {
+      "id": 6,
+      "libelle": "",
+      "price": "",
+      "qte": ""
+    }
+  ]
+}

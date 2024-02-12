@@ -1,0 +1,14 @@
+<div class="container">
+  <form action="" [formGroup]="formGroup">
+    <div>
+      <input type="number" placeholder="id" formControlName="id" />
+    </div>
+    <div>
+      <input type="text" placeholder="libelle" formControlName="libelle" />
+    </div>
+    <input type="number" placeholder="price" formControlName="prix" />
+    <div><input type="number" placeholder="qte" formControlName="qte" /></div>
+  </form>
+
+  <button (click)="update()">update</button>
+</div>

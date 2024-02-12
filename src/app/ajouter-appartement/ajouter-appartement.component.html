@@ -3,28 +3,40 @@
 
   <div class="container mt-4">
     <h2>Ajouter un nouvel appartement</h2>
-    <form>
+      <div *ngIf="isFormInvalid()" class="alert alert-danger">
+    Le formulaire est invalide. Veuillez remplir correctement tous les champs obligatoires.
+  </div>
+    <form [formGroup]="appartementForm">
+       <div class="form-group">
+        <label for="appartNum">Id Apartment</label>
+        <input
+          type="number"
+          class="form-control"
+          id="appartNum"
+          name="appartNum"
+          formControlName="apart_id"
+        />
+      </div>
       <!-- Numéro de l'appartement -->
       <div class="form-group">
         <label for="appartNum">Numéro de l'appartement</label>
         <input
-          type="text"
+          type="number"
           class="form-control"
           id="appartNum"
           name="appartNum"
-          required
+          formControlName="num_apt"
         />
       </div>
 
       <!-- Étage -->
       <div class="form-group">
-        <label for="floorNum">Étage</label>
+        <label for="floorNum">Floor num</label>
         <input
-          type="text"
+          type="number"
           class="form-control"
           id="floorNum"
-          name="floorNum"
-          required
+          formControlName="floorNum"
         />
       </div>
 
@@ -32,60 +44,74 @@
       <div class="form-group">
         <label for="surface">Surface</label>
         <input
-          type="text"
+          type="number"
           class="form-control"
           id="surface"
-          name="surface"
-          required
+          formControlName="surface"
+
         />
       </div>
 
       <!-- Terrasse -->
-      <div class="form-group">
-        <label for="terrace">Terrasse</label>
-        <select class="form-control" id="terrace" name="terrace" required>
-          <option value="oui">Oui</option>
-          <option value="non">Non</option>
-        </select>
+     <div class="form-group">
+        <label for="appartNum">Terrace</label>
+        <input
+          type="text"
+          class="form-control"
+          id="appartNum"
+          name="appartNum"
+          formControlName="terrace"
+        />
       </div>
 
       <!-- Surface de la terrasse -->
       <div class="form-group">
         <label for="surfaceTerrace">Surface de la terrasse</label>
         <input
-          type="text"
+          type="number"
           class="form-control"
           id="surfaceTerrace"
-          name="surfaceTerrace"
-          required
+          formControlName="surfaceTerrace"
+
         />
       </div>
-
-      <!-- Catégorie -->
-      <div class="form-group">
-        <label for="category">Catégorie</label>
+       <div class="form-group">
+        <label for="appartNum">Categorie</label>
         <input
           type="text"
           class="form-control"
-          id="category"
-          name="category"
-          required
+          id="appartNum"
+          name="appartNum"
+          formControlName="categorie"
         />
       </div>
-
-      <!-- Description -->
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea
+ <div class="form-group">
+        <label for="appartNum">Description</label>
+        <input
+          type="text"
           class="form-control"
-          id="description"
-          name="description"
-          required
-        ></textarea>
+          id="appartNum"
+          name="appartNum"
+          formControlName="description"
+        />
       </div>
-
+       <div class="form-group">
+        <label for="appartNum">Residence ID</label>
+        <input
+          type="number"
+          class="form-control"
+          id="residence_id"
+          name="residence_id"
+          formControlName="residence_id"
+        />
+      </div>
       <!-- Bouton Soumettre -->
-      <button type="submit" class="btn btn-primary m-2">Ajouter Appartement</button>
+      <button type="submit" (click)="ajouterAppartement()" class="btn btn-primary m-2">
+        Ajouter Appartement
+      </button>
+      <button type="reset" (click)="reset()" class="btn btn-info m-2">
+        reset
+      </button>
     </form>
   </div>
 </div>

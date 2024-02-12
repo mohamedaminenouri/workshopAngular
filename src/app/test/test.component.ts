@@ -1,5 +1,10 @@
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ConsumerProductService } from '../consumer-product.service';
+import { Product } from './../model/product';
+import { ServiceService } from './../service.service';
 import { Component } from '@angular/core';
-import { Produit } from '../model/produit';
+import { FormControl, FormControlName, FormGroup } from '@angular/forms';
+import { Produit } from '../core/models/Produit';
 
 @Component({
   selector: 'app-test',
@@ -7,20 +12,32 @@ import { Produit } from '../model/produit';
   styleUrls: ['./test.component.css'],
 })
 export class TestComponent {
-name ="nouri";
-  listproduct:Produit [] = [
-    { id: 1, libelle: 'banana', price: 15, qte: 500 },
-    { id: 2, libelle: 'fraise', price: 150, qte: 8 },
-    { id: 1, libelle: 'cioui', price: 105, qte: 870 },
-  ];
+  constructor(private serviceProduct: ServiceService,private consumer : ConsumerProductService,private route :ActivatedRoute,private r:Router,private pservice:ServiceService) {}
+ registerForm!: FormGroup;
 
-  ajoutLike(i: number) {
-    this.listproduct[i].qte++;
+
+ajouter(){
+  this.consumer.ajouterProduct(this.registerForm.value).subscribe(
+   (data)=>  this.r.navigateByUrl('/product')
+
+  );
+}
+
+
+  listProducts: Produit[] = [];
+
+  ngOnInit() {
+    this.listProducts = this.pservice.listProduit;
+   // console.log(this.listProducts);
+
+     this.registerForm = new FormGroup({
+       id: new FormControl(''),
+       libelle: new FormControl(''),
+       price: new FormControl(''),
+       qte: new FormControl(''),
+     });
   }
-  dislake(i: number) {
-    this.listproduct[i].qte--;
+  modifier(id :any, p:Product){
+  //   this.consumer.updatProdcut(id,p).subscribe
   }
-
-  prix=0;
-
 }

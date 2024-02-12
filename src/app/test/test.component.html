@@ -1,29 +1,23 @@
 <div class="container">
-<h3>{{name}}</h3>
-<input type="number" placeholder="taper prix " [(ngModel)]="prix">
-<div class="table-primary">
-<table border="2">
-  <tr>
-    <th>id</th>
-    <th>libelle</th>
-    <th>price</th>
-    <th>qte</th>
-    <th>like</th>
-    <th>dislake</th>
-  </tr>
-  <tr *ngFor="let produit of listproduct ; let p = index ">
-    <ng-container *ngIf=" produit.price>prix">
-    <td>{{ produit.id }}</td>
-    <td>{{ produit.libelle }}</td>
-    <td>{{ produit.price }}</td>
-    <td>{{ produit.qte }}</td>
-    <td><button class="like" (click)="ajoutLike(p)" >like</button></td>
-    <td><button class="dislike" (click)="dislake(p)" [disabled]="produit.qte==0">dislake</button></td>
-  </ng-container>
-  </tr>
-</table>
+<form action="" [formGroup]="registerForm">
+<div>
+  <input type="number" placeholder="id" formControlName="id">
+
 </div>
+<div><input type="text" placeholder="libelle" formControlName="libelle"></div>
+<input type="number" placeholder="price" formControlName="price">
+<div><input type="number" placeholder="qte" formControlName="qte">
 </div>
-<div class="table">
-  <div></div>
+</form>
+
+<button (click)="ajouter()">ajouter</button>
+
+
+</div>
+<hr>
+<h2>liste des produits</h2>
+
+<div *ngFor="let x of listProducts">
+  id : {{x.id}} - libelle:{{x.libelle}} - price:{{x.prix}} - qte:{{x.like}}
+
 </div>
